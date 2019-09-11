@@ -1,36 +1,36 @@
 
 
 const cardsArray = [{
-    'name': 'shell',
-    'img': 'img/blueshell.png',
+    'name': 'point',
+    'img': 'img/point.png',
   },
   {
-    'name': 'star',
-    'img': 'img/star.png',
+    'name': 'contemporary',
+    'img': 'img/contemporary.png',
   },
   {
-    'name': 'bobomb',
-    'img': 'img/bobomb.png',
+    'name': 'modern',
+    'img': 'img/modern.png',
   },
   {
-    'name': 'mario',
-    'img': 'img/mario.png',
+    'name': 'cubism',
+    'img': 'img/cubism.png',
   },
   {
-    'name': 'luigi',
-    'img': 'img/luigi.png',
+    'name': 'realism',
+    'img': 'img/realism.png',
   },
   {
-    'name': 'peach',
-    'img': 'img/peach.png',
+    'name': 'postimp',
+    'img': 'img/postimp.png',
   },
   {
-    'name': '1up',
-    'img': 'img/1up.png',
+    'name': 'soleil',
+    'img': 'img/soleil.png',
   },
   {
-    'name': 'goomba',
-    'img': 'img/goomba.png',
+    'name': 'express',
+    'img': 'img/express.png',
   },
 ];
 
@@ -46,8 +46,7 @@ let delay = 1200;
 
 const game = document.getElementById('game');
 const grid = document.createElement('ul');
-grid.setAttribute('class', 'grid');
-grid.setAttribute('id', 'card-deck');
+grid.setAttribute('id', 'grid');
 game.appendChild(grid);
 
 
