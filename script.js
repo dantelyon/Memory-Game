@@ -1,47 +1,19 @@
 
 
-const cardsArray = [{
-    'name': 'point',
-    'img': 'img/point.png',
-  },
-  {
-    'name': 'contemporary',
-    'img': 'img/contemporary.png',
-  },
-  {
-    'name': 'modern',
-    'img': 'img/modern.png',
-  },
-  {
-    'name': 'cubism',
-    'img': 'img/cubism.png',
-  },
-  {
-    'name': 'realism',
-    'img': 'img/realism.png',
-  },
-  {
-    'name': 'postimp',
-    'img': 'img/postimp.png',
-  },
-  {
-    'name': 'soleil',
-    'img': 'img/soleil.png',
-  },
-  {
-    'name': 'express',
-    'img': 'img/express.png',
-  },
-];
 
 
 
-const gameGrid = cardsArray
-  .concat(cardsArray)
-  .sort(() => 0.5 - Math.random());
+const imgArray = ['img/point.png', 'img/contemporary.png', 'img/modern.png', 'img/cubism.png', 'img/realism.png', 'img/postimp.png', 'img/soleil.png', 'img/express.png',]
 
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
 
-const game = document.getElementById('game');
+const gameGrid = shuffle(imgArray.concat(imgArray))
 
 gameGrid.forEach(item => {
   const card = document.createElement('li');
@@ -50,8 +22,8 @@ gameGrid.forEach(item => {
   card.classList.add('card');
   front.classList.add('front');
   back.classList.add('back');
-  back.style.backgroundImage = `url(${item.img})`;
-  game.appendChild(card);
+  back.style.backgroundImage = `url(${item})`;
+  document.getElementById('game').appendChild(card);
   card.appendChild(front);
   card.appendChild(back);
 });
@@ -70,7 +42,7 @@ const resetGuesses = () => {
   document.querySelectorAll('.selected').forEach(card => {card.classList.toggle('selected')});
 };
 
-game.addEventListener('click', event => {
+document.getElementById('game').addEventListener('click', event => {
   if ( event.target.nodeName === 'UL' ||
        event.target === previousTarget ||
        event.target.parentNode.classList.contains('selected') ||
