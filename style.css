@@ -41,17 +41,17 @@ body{
 .selected {
   transform: rotateY(180deg);
 }
-.match .front, .match {
+.match {
   opacity: 0;
   box-shadow: none;
   border-radius: 0px;
   cursor: auto;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
-.match2{
-  background: none;
-  box-shadow: none;
-  border-radius: 0px;
-}
+
 
 
 

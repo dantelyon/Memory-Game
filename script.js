@@ -58,7 +58,6 @@ document.getElementById('game').addEventListener('click', event => {
       secondGuess = event.target.nextSibling.style.backgroundImage
       event.target.parentNode.classList.toggle('selected')}
     if (firstGuess === secondGuess) {
-      document.querySelectorAll('.selected').forEach(card => {card.classList.add('match2')})
       setTimeout(i => document.querySelectorAll('.selected').forEach(card => {card.classList.add('match');}), 1200)
     }
     if (firstGuess && secondGuess) {
