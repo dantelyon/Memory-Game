@@ -19,7 +19,7 @@ gameGrid.forEach(item => {
   const card = document.createElement('li');
   const front = document.createElement('div');
   const back = document.createElement('div');
-  card.classList.add('card');
+  card.classList.add('portrait');
   front.classList.add('front');
   back.classList.add('back');
   back.style.backgroundImage = `url(${item})`;
@@ -65,3 +65,8 @@ document.getElementById('game').addEventListener('click', event => {
     previousTarget = event.target;
   }
 });
+
+document.getElementById('Portrait').addEventListener('click', i => document.querySelectorAll('LI').forEach(card =>card.className = "portrait")) 
+document.getElementById('Surrealism').addEventListener('click', i => document.querySelectorAll('LI').forEach(card => card.className = "surrealism"))
+document.getElementById('Contemporary').addEventListener('click', i => document.querySelectorAll('LI').forEach(card => card.className = "contemporary"))
+ 

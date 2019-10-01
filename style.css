@@ -12,9 +12,19 @@ body{
   list-style-type: none;
 }
 
-.card {
-  margin: 0.2rem 0.3rem;
+
+.portrait {
   background: #54016b;
+}
+.surrealism {
+  background: #1e63f7;
+}
+.contemporary {
+  background: #eaed15;
+}
+
+.portrait, .surrealism, .contemporary {
+  margin: 0.2rem 0.3rem;
   cursor: pointer;
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
   position: relative;
@@ -51,9 +61,6 @@ body{
   -o-transition: none !important;
   transition: none !important;
 }
-
-
-
 
 
 
