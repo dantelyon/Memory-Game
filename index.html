@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +9,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>Memory Game</h1>
-
-    <section>
-        <button id="Surrealism">Surrealism</button>
-        <button id="Contemporary">Contemporary</button>
-        <button id="Portrait">Portrait</button>
-    </section>
-
-    <ul id="game"></ul>
-
+     <div class="first">
+        <div class="second">
+            <div class="tabs">
+                <ul id="buttons">
+                    <li class="btn"><a id="abstract">Abstract</a></li>
+                    <li class="btn"><a id="impressionism">Impressionism</a></li>
+                    <li class="btn"><a id="landscape">Landscape</a></li>
+                    <li class="btn active"><a id="portrait">Portrait</a></li>
+                </ul>
+            </div>
+            <div class="inner">
+		    <ul id="game"></ul>
+		    <p></p>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

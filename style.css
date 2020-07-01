@@ -1,5 +1,4 @@
 
-
 body{
   background-image: url("beanstalk.png");
 }
@@ -12,18 +11,12 @@ body{
   list-style-type: none;
 }
 
+.portrait { background: linear-gradient(140deg, rgba(164,187,159,1) 0%, rgba(209,220,32,1) 50%, rgba(234,241,45,1) 75%);}
+.landscape { background: linear-gradient(140deg, rgba(159,184,173,1) 0%, rgba(31,219,163,1) 50%, rgba(44,232,132,1) 75%);}
+.impressionism { background: linear-gradient(140deg, rgba(159,184,173,1) 0%, rgba(31,200,219,1) 50%, rgba(44,181,232,1) 75%);}
+.abstract{ background: linear-gradient(140deg, rgba(164,187,159,1) 0%, rgba(222,128,34,1) 50%, rgba(232,97,44,1) 75%);}
 
-.portrait {
-  background: #54016b;
-}
-.surrealism {
-  background: #1e63f7;
-}
-.contemporary {
-  background: #eaed15;
-}
-
-.portrait, .surrealism, .contemporary {
+.portrait, .landscape, .impressionism, .abstract {
   margin: 0.2rem 0.3rem;
   cursor: pointer;
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
@@ -35,6 +28,7 @@ body{
   width: 125px;
   border-radius: 5px;
 }
+
 .back, .front {
   height: 125px;
   width: 125px;
@@ -42,15 +36,18 @@ body{
   position: absolute;
   backface-visibility: hidden;
 }
+
 .back {
   transform: rotateY(180deg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
+
 .selected {
   transform: rotateY(180deg);
 }
+
 .match {
   opacity: 0;
   box-shadow: none;
@@ -62,5 +59,68 @@ body{
   transition: none !important;
 }
 
+p {
+  margin: 80px;
+}
 
+.first {
+  max-width: 1170px;
+}
 
+.second {
+  width: 65%;
+  background-color: white;
+  border: 1px solid #d2d2dc;
+  border-radius: 0 0 4px 4px;
+}
+
+.inner {
+  padding: 2em;
+  min-height: calc(302px - 4em);
+  width: 1800px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+  border-right: 1px solid #fff;
+  background: #50086e;
+  float: left;
+  padding: 0;
+  text-align: center;
+  width: 278px;
+}
+
+a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  font: 400 1rem/1.5 Arial,sans-serif;
+  box-sizing: border-box;
+  padding: 12px 0;
+  padding-left: .5em;
+  padding-right: .5em;
+  height: 100%;
+  margin: 0;
+  padding-top: 12px;
+}
+
+li.active a {
+  background-color: #fff !important;
+  color: #3b3a3c !important;
+  position: relative;
+  z-index: 100;
+}
+
+li.active {
+  background: #6a148e;
+  border: 0;
+  border-color: #6a148e;
+}
