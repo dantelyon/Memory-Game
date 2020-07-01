@@ -1,0 +1,32 @@
+
+body {
+  margin: 40px;
+}
+.game {
+    min-width: 400px;
+    max-width: 600px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e6e6e6;
+}
+.header {
+    background: #f2f2f2;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    padding-left: 0.5rem;
+    justify-content: space-around;
+}
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 0.8em 1em;
+    position: relative;
+    background-color: #fff;
+}
+.card {
+    background: #f2f2f2;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+
