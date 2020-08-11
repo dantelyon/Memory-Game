@@ -57,4 +57,3 @@ const images = {
     586:{title:'Rafales de vent', year:1911, painter:'Armand Guillaumin'},
   }
 }
-

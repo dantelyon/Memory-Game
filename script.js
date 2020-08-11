@@ -5,6 +5,7 @@ function changeCards(type) {
   let something = shuffle(Object.keys(images[type])).slice(0,8)
   let temp = shuffle(something.concat(something))
   document.querySelectorAll(".back").forEach((card, i) => {card.style.backgroundImage = `url('${type}/${temp[i]}.jpg')`} )
+  document.querySelectorAll(".front").forEach((card, i) => {card.dataset.id = temp[i]} )
 }
 
 function resetGuesses() {
@@ -73,7 +74,11 @@ document.getElementById('game').addEventListener('click', event => {
 		secondGuess = event.target.nextSibling.style.backgroundImage;
 		event.target.parentNode.classList.toggle('selected');
 		if (firstGuess === secondGuess) {
-			setTimeout(function() {document.querySelectorAll('.selected').forEach(card => card.classList.add('match'))}, 1200)
+			setTimeout(function() {
+        document.querySelectorAll('.selected').forEach(card => card.classList.add('match'));
+        const painting = images[event.target.parentNode.classList[1]][event.target.dataset.id]
+        document.getElementById("matched-image-info").textContent = `${painting.title} (${painting.year}), by ${painting.painter}.`
+      }, 1200)
 		};
 		if (firstGuess && secondGuess) {setTimeout(resetGuesses, 1200)}
 	};
