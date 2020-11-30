@@ -1,11 +1,12 @@
 
 function changeCards(type) {
   resetGuesses()
-  document.querySelectorAll('#game > DIV').forEach(card => card.className = "card " + type)
-  let something = shuffle(Object.keys(images[type])).slice(0,8)
-  let temp = shuffle(something.concat(something))
-  document.querySelectorAll(".back").forEach((card, i) => {card.style.backgroundImage = `url('${type}/${temp[i]}.jpg')`} )
-  document.querySelectorAll(".front").forEach((card, i) => {card.dataset.id = temp[i]} )
+  document.querySelectorAll('.card').forEach(card => card.className = "card " + type)
+  let chosenCards = shuffle(Object.keys(images[type])) . slice(0,8)
+  let chosenCards2x = chosenCards.concat(chosenCards)
+  let shuffledCards = shuffle(chosenCards2x)
+  document.querySelectorAll(".back").forEach((card, i) => {card.style.backgroundImage = `url('${type}/${shuffledCards[i]}.jpg')`} )
+  document.querySelectorAll(".front").forEach((card, i) => {card.dataset.id = shuffledCards[i]} )
 }
 
 function resetGuesses() {
@@ -13,15 +14,15 @@ function resetGuesses() {
   secondGuess = '';
   guesses = 0;
   previousTarget = null;
-  document.querySelectorAll('.selected').forEach(card => {card.classList.toggle('selected')});
-};
+  document.querySelectorAll('.selected').forEach(card => card.classList.toggle('selected'));
+}
 
 function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a
 }
 
 window.onload = function(){
@@ -30,28 +31,28 @@ window.onload = function(){
     let front = document.createElement('div');
     let back = document.createElement('div');
     card.classList.add('card');
-    card.classList.add('portrait');
+    card.classList.add('landscape');
     front.classList.add('front');
     back.classList.add('back');
     card.appendChild(front);
     card.appendChild(back);
     document.getElementById('game').appendChild(card);
-  }
-  changeCards("portrait")
+  };
+  changeCards("landscape")
 };
 
-/* BUTTONS HEADER*/
-var btnContainer = document.getElementsByClassName("header")[0];
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
+const header = document.querySelector('#header')
+const headerButtons = header.getElementsByClassName("genreButton");
+
+for (let i = 0; i < headerButtons.length; i++) {
+  headerButtons[i].addEventListener("click", function() {
+    const activeButton = document.getElementsByClassName("active");
+    activeButton[0].className = activeButton[0].className.replace(" active", "");
     this.className += " active";
   });
 }
-btnContainer.addEventListener('click', (e) => e.target.nodeName=='A' && changeCards(e.target.id))
 
+header.addEventListener('click', event => event.target.nodeName=='A' && changeCards(event.target.id))
 
 let firstGuess = '';
 let secondGuess = '';
@@ -77,10 +78,12 @@ document.getElementById('game').addEventListener('click', event => {
 			setTimeout(function() {
         document.querySelectorAll('.selected').forEach(card => card.classList.add('match'));
         const painting = images[event.target.parentNode.classList[1]][event.target.dataset.id]
-        document.getElementById("matched-image-info").textContent = `${painting.title} (${painting.year}), by ${painting.painter}.`
+        document.getElementById("matched-image-title").textContent = `${painting.title}`
+        document.getElementById("matched-image-info").textContent = `(${painting.year}), by ${painting.painter}.`
       }, 1200)
 		};
 		if (firstGuess && secondGuess) {setTimeout(resetGuesses, 1200)}
 	};
 	previousTarget = event.target;
 });
+

@@ -4,25 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>CSS Grid Memory Game</title>
-    <meta name="description" content="">
+    <meta name="description" content="A memory game using CSS Grid">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="container">
+        <div id="header">
+            <div class="genreButton"><a id="abstract">Abstract</a></div>
+            <div class="genreButton"><a id="impressionism">Impressionism</a></div>
+            <div class="genreButton active"><a id="landscape">Landscape</a></div>
+            <div class="genreButton"><a id="portrait">Portrait</a></div>
+        </div>
+        <div id="game"></div>
+    </div>
 
-<div class="container">
-	<div class="header">
-		<div class="btn"><a id="abstract">Abstract</a></div>
-		<div class="btn"><a id="impressionism">Impressionism</a></div>
-		<div class="btn"><a id="landscape">Landscape</a></div>
-		<div class="btn active"><a id="portrait">Portrait</a></div>
-	</div>
-	<div class="grid" id="game"></div>
-</div>
-<div id="matched-image-info"></div>
-
-
+    <div id="last-artwork-matched">Last artwork matched: <span id="matched-image-title"></span> <span id="matched-image-info"></span></div>
+    
     <script src="metadata.js"></script>
     <script src="script.js"></script>
 </body>
