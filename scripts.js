@@ -65,7 +65,6 @@ document.getElementById('game').addEventListener('click', event => {
        event.target.parentNode.classList.contains('selected') ||
        event.target.parentNode.classList.contains('match') ) 
     	return
-
 	guesses++
 	if (guesses === 1) {
 		firstGuess = event.target.nextSibling.style.backgroundImage;
