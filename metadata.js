@@ -1,5 +1,5 @@
 
-const images = {
+const METADATA = {
   'abstract':{
     152:{title:'Aeroplane Flying', year:1915, painter:'Kazimir Malevich'},
     153:{title:'A man in a cafe', year:1914, painter:'Juan Gris'},

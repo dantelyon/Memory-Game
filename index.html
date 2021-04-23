@@ -10,15 +10,15 @@
 </head>
 <body>
 
-    <div class="container">
-        <div id="header">
-            <div class="genreButton"><a id="abstract">Abstract</a></div>
-            <div class="genreButton"><a id="impressionism">Impressionism</a></div>
-            <div class="genreButton active"><a id="landscape">Landscape</a></div>
-            <div class="genreButton"><a id="portrait">Portrait</a></div>
-        </div>
-        <div id="game"></div>
-    </div>
+    <main class="container">
+        <nav class="genreButtons">
+            <button class="" data-genre="abstract">Abstract</button>
+            <button class="" data-genre="impressionism">Impressionism</button>
+            <button class="selectedButton" data-genre="landscape">Landscape</button>
+            <button class="" data-genre="portrait">Portrait</button>
+        </nav>
+        <div class="cardsGrid"></div>
+    </main>
 
     <div id="last-artwork-matched">Last artwork matched: <span id="matched-image-title"></span> <span id="matched-image-info"></span></div>
     
