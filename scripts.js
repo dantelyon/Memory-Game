@@ -4,6 +4,14 @@ let secondGuess = ''
 let guesses = 0
 let previousTarget = null
 
+const genreButtons = document.querySelectorAll(".genreButtons > button");
+genreButtons.forEach(button => {
+  button.addEventListener("click", function(event) {
+    document.querySelector(".selectedButton").classList.remove("selectedButton");
+    this.className = "selectedButton";
+    changeGenre(event.target.dataset.genre)
+  });
+})
 
 window.addEventListener('load', createCards)
 
@@ -22,20 +30,12 @@ function createCards() {
   changeGenre("landscape");
 }
 
-const genreButtons = document.querySelectorAll(".genreButtons > button");
-genreButtons.forEach(button => {
-  button.addEventListener("click", function(event) {
-    document.querySelector(".selectedButton").classList.remove("selectedButton");
-    this.className = "selectedButton";
-    changeGenre(event.target.dataset.genre)
-  });
-})
-
 function changeGenre(selectedGenre) {
   resetGuesses();
   document.querySelectorAll('.matched').forEach(card => card.classList.remove('matched'));
   document.querySelector(".cardsGrid").className = `cardsGrid ${selectedGenre}`;
   let randomCards = shuffle(Object.keys(METADATA[selectedGenre])).slice(0, 8);
+  if (randomCards.length < 8) console.error(`Only ${randomCards.length} paintings in the ${selectedGenre} collection!`);
   let shuffledCards = shuffle(randomCards.concat(randomCards));
   document.querySelectorAll(".cardFront").forEach((card, i) => card.dataset.id = shuffledCards[i]);
   document.querySelectorAll(".cardBack").forEach((card, i) => {

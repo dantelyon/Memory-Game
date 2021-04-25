@@ -21,6 +21,11 @@ body {
   background: #50086e;
   flex-grow: 1;
   text-align: center;
+  cursor: pointer;
+  color: #fff;
+  display: block;
+  padding: 12px 0;
+  font: 400 1rem/1.5 Arial,sans-serif;
 }
 
 .genreButtons .selectedButton {
@@ -29,13 +34,11 @@ body {
   position: relative;
   z-index: 100;
   border: 0;
+  cursor: default;
 }
 
-.genreButtons button {
-  color: #fff;
-  display: block;
-  padding: 12px 0;
-  font: 400 1rem/1.5 Arial,sans-serif;
+.genreButtons button:not(.selectedButton):hover {
+  background-color: #650c8a;
 }
 
 .cardsGrid {
@@ -119,10 +122,11 @@ body {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 600px) {
   .cardsGrid {
     grid-template-columns: repeat(4, 76px);
     grid-template-rows: repeat(4, 76px);
+    padding: 0.5em;
   }
   .cardBack, .cardFront {
     width: 76px;
@@ -130,5 +134,8 @@ body {
   }
   body {
     margin: 0;
+  }
+  .genreButtons button {
+    font-size: 0.8rem;
   }
 }
